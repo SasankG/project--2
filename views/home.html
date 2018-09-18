@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equv="X-UA-Compatible" content="IE=edge">
+        <title>Gigs</title>
+        <link rel="stylesheet" href="public/assets/css/styles.css">
+    </head>
+
+<!-- bootstrap -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<!-- bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<!-- Local css -->
+<link rel="stylesheet" type="text/css" href="./styles/styles.css">
+<!-- jquery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- local JS -->
+<script src="./js/index.js"></script>
+<!-- model cdn -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+    <body>
+        
+        <div class="container-fullwidth">
+            <nav class="navbar navbar-default navbar-fixed-top navbar-custom bg-light" id="stickynav">
+                <div class="container-fluid">
+                        <a href="#" class="navbar-left pull-left">
+                          <h1 class="title">Welcome to Gigs</h1>
+                        </a>
+                    </a>
+                    <button class="navbar-toggle " type="button" data-toggle="collapse" data-target="#navbarstuff">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+    
+                    <div class=" collapse navbar-collapse " id="navbarstuff">
+                        <ul class="nav navbar-nav navbar-right nav-pills blue">
+                            <li role="presentation" class="active">
+                                <a href="index.html">Home</a>
+                            </li>
+                            <li role="presentation" id="pills">
+                                <a href="#">Post Gigs</a>
+                            </li>
+                          
+                            <li role="presentation" id="pills">
+                                <a href="#">My Gigs</a>
+                            </li>
+                        </ul>
+                        </div>
+                </div>
+            </nav>
+        </div>
+
+        <style>
+                /* Set the size of the div element that contains the map */
+                #map {
+                  height: 400px;  /* The height is 400 pixels */
+                  width: 100%;  /* The width is the width of the web page */
+                 }
+              </style>
+            </head>
+            <body>
+              <h3>Location of Chores</h3>
+              <!--The div element for the map -->
+              <div id="map"></div>
+              <script>
+          // Initialize and add the map
+          function initMap() {
+            // The location 
+            var location = {lat: 43.653908 , lng: -79.384293};
+            // The map, centered 
+            var map = new google.maps.Map(
+                document.getElementById('map'), {zoom: 15, center: location});
+            // The marker, positioned at Uluru
+            var marker = new google.maps.Marker({position: location, map: map});
+          }
+              </script>
+              <script async defer
+              src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfaPl1kuxUrr3KRSesvA2F64t-x2EqXrk&callback=initMap">
+              </script>
+
+
+
+                <br>
+            <div id ="todolist" class="header">
+                <h2>Gigs list</h2>
+                <input type="text" id="input" placeholder="add">
+                <span id="newElement()" class="addBtn">Add</span>
+            </div>
+            
+            <ul id="myUL">
+                <li></li>
+                
+            
+
+                <script>
+                    var myNodelist = document.getElementsByTagName("li");
+                    var i;
+                    for (i = 0; i < myNodelist.length; i++) {
+                        var span = document.createElement("Span");
+                        var text = document.createTextNode("\u00D7");
+                        span.className = "close";
+                        span.appendChild(text);
+                        myNodelist[i].appendChild(span);
+
+                    }
+
+
+                    document.getElementById("newElement()").onclick = function () {
+                        location.href="login.html"
+                    };
+
+
+                
+                
+
+                </script>
+            </ul>  
+    </body>
+</html>
+
+<script>
+$(document).ready(function() {
+  var getUser = {
+    id: sessionStorage.id,
+  };
+
+  $.post("/api/jobs", getUser, function(user) {
+      console.log("this is from the html " + user);
+      $(".title").html("Welcome " + user.firstName);
+  });
+});
+
+</script>
