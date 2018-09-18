@@ -51,6 +51,7 @@ module.exports = function(app) {
     });
   });
 
+  // creates an account
   app.post("/api/signup", function(req, res) {
     // create takes an argument of an object describing the item we want to
     // insert into our table. In this case we just we pass in an object with a text
@@ -71,5 +72,18 @@ module.exports = function(app) {
         // We can "catch" the error to prevent it from being "thrown", which could crash our node app
         res.json(err);
       });
+  });
+
+  //grabing user information
+  app.post("/api/jobs", function(req, res) {
+    db.Users.findOne({
+      include: [db.Jobs],
+      where: {
+        id: req.body.id
+      }
+    }).then(function(dbUser) {
+      console.log("this is from api routes " + JSON.stringify(dbUser, null, 2));
+      res.json(dbUser);
+    });
   });
 };
