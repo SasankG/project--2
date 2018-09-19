@@ -1,3 +1,14 @@
 .list-group-item {
   line-height: 2.5;
 }
+
+.card {
+  width: 30rem;
+  margin-top: 20%;
+}
+
+.login-background {
+  background-image: url("../images/login-background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
