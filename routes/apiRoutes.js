@@ -109,10 +109,6 @@ module.exports = function(app) {
       });
   });
 
-  app.post("/api/jobs/update", function(req, res) {
-    
-  });
-
   app.get("/api/posting", function(req, res) {
     db.Jobs.findAll({}).then(function(dbJobs) {
       console.log(dbJobs);

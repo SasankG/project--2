@@ -37,7 +37,6 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
                     <li><a href="home.html">Home</a></li>
                     <li><a href="posting.html">Post a Gig</a></li>
                     <li><a href="mygigs.html">My Gigs</a></li>
@@ -46,17 +45,21 @@
             </div>
         </div>
     </nav>
-    <div class='container'> 
-        <div class="row">
-            <div class="col-lg">
-                <div class="gigsList">
-                    <p id="gigsTitle">My Gigs</p>
+   
+    
+        <div class="todolist">
+            <p id="listTitle">My Gigs <p>
                     <p id="gigsBlurb">Here is a list of Gigs you have decided to persue</p>
-                    <div class="myList"></div>                    
-                </div>                
-            </div>        
-        </div>
-    </div>
+                    <div class="container">
+                        <div class="row">
+    
+                            <div class="list"></div>
+    
+                            <div class="job-button"></div>
+    
+                        </div>
+                    </div>
+                </div>
 
 
 
@@ -82,5 +85,16 @@
             console.log("this is from the html " + user);
             $(".title").html("Welcome " + user.firstName);
         });
+        // var jobs = JSON.parse(localStorage.getItem("Jobs"));
+        // $(".myList").html((jobs)); 
+        
+        $.get("/api/posting/", function(job){
+            var chore = $("<div class='chore post-color'></div>");
+            for (var i=0; i < job.length; i++){
+                console.log(job)
+                $(chore).append("<p id='posting'>Posted by: " + job[i].firstName + "<br>" + "Job Title: " + job[i].task + " Payment: " + job[i].price + " Location: " + job[i].address + "<br> <br> </p> ");
+            };
+        $(".list").append(chore);
+        })
     });
 </script>

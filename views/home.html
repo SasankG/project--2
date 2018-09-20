@@ -23,137 +23,131 @@
 <!-- model cdn -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
     crossorigin="anonymous"></script>
+
 <body>
-          
-        <nav class="navbar">
-                    <div class="container-fluid">
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                            <a class="navbar-brand title" href="#"></a>
-                        </div>
-                        <div class="collapse navbar-collapse" id="myNavbar">
-                            <ul class="nav navbar-nav">
-                                <li class="active"><a href="#">Home</a></li>
-                                <li><a href="home.html">Home</a></li>
-                                <li><a href="posting.html">Post a Gig</a></li>
-                                <li><a href="mygigs.html">My Gigs</a></li>
-                            </ul>
-                            
-                        </div>
-                    </div>
-            </nav>
-            
-            <div class="mapBox">
-                    <p id="home">Gigs</p>
-                    <div id="map" style="height: 400px; width: 80%;"></div>
+
+    <nav class="navbar">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand title" href="#"></a>
             </div>
-       
-        <script>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="posting.html">Post a Gig</a></li>
+                    <li><a href="mygigs.html">My Gigs</a></li>
+                </ul>
 
-            var map, infoWindow;
-            function initMap() {
-                map = new google.maps.Map(document.getElementById('map'), {
-                    center: { lat: -34.397, lng: 150.644 },
-                    zoom: 16
-                });
-                infoWindow = new google.maps.InfoWindow;
-                if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(function (position) {
-                        var pos = {
-                            lat: position.coords.latitude,
-                            lng: position.coords.longitude
-                        };
-
-                        infoWindow.setPosition(pos);
-                        infoWindow.setContent('You are here!');
-                        infoWindow.open(map);
-                        map.setCenter(pos);
-                    }, function () {
-                        handleLocationError(true, infoWindow, map.getCenter());
-                    });
-                } else {
-                    // Browser doesn't support Geolocation
-                    handleLocationError(false, infoWindow, map.getCenter());
-                }
-            }
-
-            function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-                infoWindow.setPosition(pos);
-                infoWindow.setContent(browserHasGeolocation ?
-                    'Error: The Geolocation service failed.' :
-                    'Error: Your browser doesn\'t support geolocation.');
-                infoWindow.open(map);
-            }
-        </script>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfaPl1kuxUrr3KRSesvA2F64t-x2EqXrk&callback=initMap">
-        </script>
-        <br>
-
-        <div class="todolist">
-            <p id="listTitle">Gigs Near You<p>
-            <div class="container">
-                <div class="row">
-                  
-                        <div class="list"></div>
-                   
-                        <div class="job-button"></div>
-                 
-                </div>
             </div>
         </div>
-    </body>
-    <!-- <div class="container">
-            <div class="row">
-                <div class="col-lg">
-                    <div class="footer">
-                        <p id="footerBlurb">2018-2019 • Gigs</p>
+    </nav>
+
+    <div class="mapBox">
+        <p id="home">Gigs</p>
+        <div id="map" style="height: 400px; width: 80%;"></div>
+    </div>
+
+    <script>
+
+        var map, infoWindow;
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: -34.397, lng: 150.644 },
+                zoom: 16
+            });
+            infoWindow = new google.maps.InfoWindow;
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    var pos = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+
+                    infoWindow.setPosition(pos);
+                    infoWindow.setContent('You are here!');
+                    infoWindow.open(map);
+                    map.setCenter(pos);
+                }, function () {
+                    handleLocationError(true, infoWindow, map.getCenter());
+                });
+            } else {
+                // Browser doesn't support Geolocation
+                handleLocationError(false, infoWindow, map.getCenter());
+            }
+        }
+
+        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+            infoWindow.setPosition(pos);
+            infoWindow.setContent(browserHasGeolocation ?
+                'Error: The Geolocation service failed.' :
+                'Error: Your browser doesn\'t support geolocation.');
+            infoWindow.open(map);
+        }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfaPl1kuxUrr3KRSesvA2F64t-x2EqXrk&callback=initMap">
+    </script>
+    <br>
+
+    <div class="todolist">
+        <p id="listTitle">Gigs Near You
+            <p>
+                <div class="container">
+                    <div class="row">
+
+                        <div class="list"></div>
+
+                        <div class="job-button"></div>
+
                     </div>
                 </div>
-            </div>
-        </div> -->
+    </div>
+</body>
+<script>
+    $(document).ready(function () {
+        var getUser = {
+            id: sessionStorage.id,
+        };
+        var updateUser = {
+            userID: sessionStorage.id,
+        };
+        var buttons = $(".job-button");
+        console.log(getUser.id);
+        console.log(updateUser.UserID)
+        $.post("/api/jobs", getUser, function (user) {
+            console.log("this is from the html " + user);
+            $(".title").html("Welcome " + user.firstName);
+        });
+
+        $.get("/api/posting/", function (job) {
+            var chore = $("<div class='chore post-color'></div>");
+            for (var i = 0; i < job.length; i++) {
+                console.log(job)
+                $(chore).append("<p id='posting'>Posted by: " + job[i].firstName + "<br>" + "Job Title: " + job[i].task + " Payment: " + job[i].price + " Location: " + job[i].address + "</p> ");
+                var a = $("<button id='addbtn' class='btn btn-primary'>Add Job :" + job[i].task + "</button>");
+                a.append(job[i].task);
+                buttons.append(a);
+            }
+            $(document).on("click", "#addbtn", function () {
+                // console.log(JSON.stringify(chore))
+                // JSON.parse(localStorage.getItem("Jobs"));                                
+                // localStorage.setItem("Jobs", JSON.stringify(jobs));
+                //eg
+                // alert(localStorage.getItem("Jobs"));
+                alert("Job Added!")
+            })
+            console.log(chore);
+            $(".list").append(chore);
+        });
+
+
+        ScrollReveal().reveal('.chore');
+    });
+</script>
+
 </html>
 
-        <script>
-                $(document).ready(function () {
-                    var getUser = {
-                        id: sessionStorage.id,
-                    };
-                    var updateUser = {
-                        userID: sessionStorage.id,
-                    };
-                    var buttons = $(".job-button");
-                    console.log(getUser.id);
-                    console.log(updateUser.UserID)
-                    $.post("/api/jobs", getUser, function (user) {
-                        console.log("this is from the html " + user);
-                        $(".title").html("Welcome " + user.firstName);
-                    });
-            
-                    $.get("/api/posting/", function(job){
-                        var chore = $("<div class='chore post-color'></div>");
-                        for (var i=0; i < job.length; i++){
-                            console.log(job)
-                            $(chore).append("<p id='posting'>Posted by: " + job[i].firstName + "<br>" + "Job Title: " + job[i].task + " Payment: " + job[i].price + " Location: " + job[i].address + "</p> ");
-                            var a = $("<button id='addbtn' class='btn btn-primary'>Add Gig!</button>");
-                            a.append(job[i].task);
-                            buttons.append(a);
-                        }   
-                        console.log(chore);
-                        $(".list").append(chore);
-                    });
-                    // Add Task Button
-                    $(document).on("click","#addbtn",function(){
-                        console.log("hello");
-                        $.post("/api/jobs/update", updateUser, function(result){
-                            console.log(updateUser.userId)
-                            console.log(result);
-                        })
-                    })
-
-                    ScrollReveal().reveal('.chore');
-                });
-        </script>
