@@ -1,140 +1,159 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8"/>
-        <meta http-equv="X-UA-Compatible" content="IE=edge">
-        <title>Gigs</title>
-        <link rel="stylesheet" href="public/assets/css/styles.css">
-    </head>
 
-<!-- bootstrap -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equv="X-UA-Compatible" content="IE=edge">
+    <title>Gigs</title>
+    <link rel="stylesheet" href="public/assets/css/styles.css">
+</head>
+
+<!-- Scroll Reveal-->
+<script src="https://unpkg.com/scrollreveal"></script>
 <!-- bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-<!-- Local css -->
-<link rel="stylesheet" type="text/css" href="./styles/styles.css">
-<!-- jquery -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<!-- Local css -->
+<link rel="stylesheet" type="text/css" href="/styles/styles.css">
+<!-- jquery -->
 <!-- local JS -->
-<script src="./js/index.js"></script>
+<script src="/js/index.js"></script>
 <!-- model cdn -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
-
-    <body>
-        
-        <div class="container-fullwidth">
-            <nav class="navbar navbar-default navbar-fixed-top navbar-custom bg-light" id="stickynav">
-                <div class="container-fluid">
-                        <a href="#" class="navbar-left pull-left">
-                          <h1 class="title">Welcome to Gigs</h1>
-                        </a>
-                    </a>
-                    <button class="navbar-toggle " type="button" data-toggle="collapse" data-target="#navbarstuff">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-    
-                    <div class=" collapse navbar-collapse " id="navbarstuff">
-                        <ul class="nav navbar-nav navbar-right nav-pills blue">
-                            <li role="presentation" class="active">
-                                <a href="index.html">Home</a>
-                            </li>
-                            <li role="presentation" id="pills">
-                                <a href="#">Post Gigs</a>
-                            </li>
-                          
-                            <li role="presentation" id="pills">
-                                <a href="#">My Gigs</a>
-                            </li>
-                        </ul>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+<body>
+          
+        <nav class="navbar">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand title" href="#"></a>
                         </div>
-                </div>
+                        <div class="collapse navbar-collapse" id="myNavbar">
+                            <ul class="nav navbar-nav">
+                                <li class="active"><a href="#">Home</a></li>
+                                <li><a href="home.html">Home</a></li>
+                                <li><a href="posting.html">Post a Gig</a></li>
+                                <li><a href="mygigs.html">My Gigs</a></li>
+                            </ul>
+                            
+                        </div>
+                    </div>
             </nav>
-        </div>
-
-        <style>
-                /* Set the size of the div element that contains the map */
-                #map {
-                  height: 400px;  /* The height is 400 pixels */
-                  width: 100%;  /* The width is the width of the web page */
-                 }
-              </style>
-            </head>
-            <body>
-              <h3>Location of Chores</h3>
-              <!--The div element for the map -->
-              <div id="map"></div>
-              <script>
-          // Initialize and add the map
-          function initMap() {
-            // The location 
-            var location = {lat: 43.653908 , lng: -79.384293};
-            // The map, centered 
-            var map = new google.maps.Map(
-                document.getElementById('map'), {zoom: 15, center: location});
-            // The marker, positioned at Uluru
-            var marker = new google.maps.Marker({position: location, map: map});
-          }
-              </script>
-              <script async defer
-              src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfaPl1kuxUrr3KRSesvA2F64t-x2EqXrk&callback=initMap">
-              </script>
-
-
-
-                <br>
-            <div id ="todolist" class="header">
-                <h2>Gigs list</h2>
-                <input type="text" id="input" placeholder="add">
-                <span id="newElement()" class="addBtn">Add</span>
+            
+            <div class="mapBox">
+                    <p id="home">Gigs</p>
+                    <div id="map" style="height: 400px; width: 80%;"></div>
             </div>
-            
-            <ul id="myUL">
-                <li></li>
-                
-            
+       
+        <script>
 
-                <script>
-                    var myNodelist = document.getElementsByTagName("li");
-                    var i;
-                    for (i = 0; i < myNodelist.length; i++) {
-                        var span = document.createElement("Span");
-                        var text = document.createTextNode("\u00D7");
-                        span.className = "close";
-                        span.appendChild(text);
-                        myNodelist[i].appendChild(span);
+            var map, infoWindow;
+            function initMap() {
+                map = new google.maps.Map(document.getElementById('map'), {
+                    center: { lat: -34.397, lng: 150.644 },
+                    zoom: 16
+                });
+                infoWindow = new google.maps.InfoWindow;
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(function (position) {
+                        var pos = {
+                            lat: position.coords.latitude,
+                            lng: position.coords.longitude
+                        };
 
-                    }
+                        infoWindow.setPosition(pos);
+                        infoWindow.setContent('You are here!');
+                        infoWindow.open(map);
+                        map.setCenter(pos);
+                    }, function () {
+                        handleLocationError(true, infoWindow, map.getCenter());
+                    });
+                } else {
+                    // Browser doesn't support Geolocation
+                    handleLocationError(false, infoWindow, map.getCenter());
+                }
+            }
 
+            function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+                infoWindow.setPosition(pos);
+                infoWindow.setContent(browserHasGeolocation ?
+                    'Error: The Geolocation service failed.' :
+                    'Error: Your browser doesn\'t support geolocation.');
+                infoWindow.open(map);
+            }
+        </script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfaPl1kuxUrr3KRSesvA2F64t-x2EqXrk&callback=initMap">
+        </script>
+        <br>
 
-                    document.getElementById("newElement()").onclick = function () {
-                        location.href="login.html"
-                    };
-
-
-                
-                
-
-                </script>
-            </ul>  
+        <div class="todolist">
+            <p id="listTitle">Gigs Near You<p>
+            <div class="container">
+                <div class="row">
+                  
+                        <div class="list"></div>
+                   
+                        <div class="job-button"></div>
+                 
+                </div>
+            </div>
+        </div>
     </body>
+    <!-- <div class="container">
+            <div class="row">
+                <div class="col-lg">
+                    <div class="footer">
+                        <p id="footerBlurb">2018-2019 • Gigs</p>
+                    </div>
+                </div>
+            </div>
+        </div> -->
 </html>
 
-<script>
-$(document).ready(function() {
-  var getUser = {
-    id: sessionStorage.id,
-  };
+        <script>
+                $(document).ready(function () {
+                    var getUser = {
+                        id: sessionStorage.id,
+                    };
+                    var updateUser = {
+                        userID: sessionStorage.id,
+                    };
+                    var buttons = $(".job-button");
+                    console.log(getUser.id);
+                    console.log(updateUser.UserID)
+                    $.post("/api/jobs", getUser, function (user) {
+                        console.log("this is from the html " + user);
+                        $(".title").html("Welcome " + user.firstName);
+                    });
+            
+                    $.get("/api/posting/", function(job){
+                        var chore = $("<div class='chore post-color'></div>");
+                        for (var i=0; i < job.length; i++){
+                            console.log(job)
+                            $(chore).append("<p id='posting'>Posted by: " + job[i].firstName + "<br>" + "Job Title: " + job[i].task + " Payment: " + job[i].price + " Location: " + job[i].address + "</p> ");
+                            var a = $("<button id='addbtn' class='btn btn-primary'>Add Gig!</button>");
+                            a.append(job[i].task);
+                            buttons.append(a);
+                        }   
+                        console.log(chore);
+                        $(".list").append(chore);
+                    });
+                    // Add Task Button
+                    $(document).on("click","#addbtn",function(){
+                        console.log("hello");
+                        $.post("/api/jobs/update", updateUser, function(result){
+                            console.log(updateUser.userId)
+                            console.log(result);
+                        })
+                    })
 
-  $.post("/api/jobs", getUser, function(user) {
-      console.log("this is from the html " + user);
-      $(".title").html("Welcome " + user.firstName);
-  });
-});
-
-</script>
+                    ScrollReveal().reveal('.chore');
+                });
+        </script>
