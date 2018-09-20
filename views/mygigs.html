@@ -18,7 +18,7 @@
 <link rel="stylesheet" type="text/css" href="/styles/styles.css">
 <!-- jquery -->
 <!-- local JS -->
-<script src="/js/index.js"></script>
+<script src="/js/mygigs.js"></script>
 <!-- model cdn -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
     crossorigin="anonymous"></script>
@@ -50,51 +50,16 @@
         <div class="todolist">
             <p id="listTitle">My Gigs <p>
                     <p id="gigsBlurb">Here is a list of Gigs you have decided to persue</p>
-                    <div class="container">
-                        <div class="row">
-    
-                            <div class="list"></div>
-    
-                            <div class="job-button"></div>
-    
-                        </div>
-                    </div>
-                </div>
+            <div class="container">
+                <div class="row">
 
+                    <div class="list"></div>
 
+                    <div class="job-button"></div>
 
-</body>
-<!-- <div class="container">
-            <div class="row">
-                <div class="col-lg">
-                    <div class="footer">
-                        <p id="footerBlurb">2018-2019 • Gigs</p>
-                    </div>
                 </div>
             </div>
-        </div> -->
+        </div>
+</body>
 </html>
 
-<script type="text/javascript">
-    $(document).ready(function () {
-        var getUser = {
-            id: sessionStorage.id,
-        };
-
-        $.post("/api/jobs", getUser, function (user) {
-            console.log("this is from the html " + user);
-            $(".title").html("Welcome " + user.firstName);
-        });
-        // var jobs = JSON.parse(localStorage.getItem("Jobs"));
-        // $(".myList").html((jobs)); 
-        
-        $.get("/api/posting/", function(job){
-            var chore = $("<div class='chore post-color'></div>");
-            for (var i=0; i < job.length; i++){
-                console.log(job)
-                $(chore).append("<p id='posting'>Posted by: " + job[i].firstName + "<br>" + "Job Title: " + job[i].task + " Payment: " + job[i].price + " Location: " + job[i].address + "<br> <br> </p> ");
-            };
-        $(".list").append(chore);
-        })
-    });
-</script>

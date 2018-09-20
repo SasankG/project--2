@@ -15,7 +15,7 @@
 <!-- jquery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!-- local JS -->
-<script src="./js/index.js"></script>
+<script src="/js/login.js"></script>
 <!-- model cdn -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
@@ -71,52 +71,3 @@
 </body>
 
 </html>
-
-
-<script type="text/javascript">
-    $( document ).ready(function() {
-    
-    
-        $("#submit").on('click', function (event) {
-            event.preventDefault();
-    
-            function checkform(){
-                var vaild = true;
-                $(".form-control ").each(function(){
-                    if ($(this).val() === ""){
-                        vaild = false;
-                
-                    }
-                });
-                return vaild;
-            }
-    
-            if(checkform()){
-    
-                var userInput = {
-                    email : $("#email").val().trim(),
-                    password : $("#password").val().trim(),
-                };          
-                    console.log(userInput);
-    
-                $.post("/api/accounts", userInput, function(data){
-                    console.log(data);
-                    if(data !== null){
-                        sessionStorage.id = data.id;
-                        console.log(sessionStorage.id);
-                        window.location.href = "/home";
-                    }else{
-                        $("#result-modal").modal("toggle");
-                    }
-                    console.log(data);
-                });
-
-                }else{
-                    alert("Please Fill out the Form!!")
-                }
-                
-         });
-    
-    });
-    
-    </script>
